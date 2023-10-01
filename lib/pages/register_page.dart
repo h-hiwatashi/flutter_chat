@@ -1,6 +1,9 @@
+// ignore: depend_on_referenced_packages
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_chat/pages/login_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/utils/constants.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -39,8 +42,10 @@ class _RegisterPageState extends State<RegisterPage> {
       // Navigator.of(context)
       //     .pushAndRemoveUntil(ChatPage.route(), (route) => false);
     } on AuthException catch (error) {
+      print('error msg : $error');
       context.showErrorSnackBar(message: error.message);
     } catch (error) {
+      print('error msg : $error');
       context.showErrorSnackBar(message: unexpectedErrorMessage);
     }
   }
@@ -111,8 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
             formSpacer,
             TextButton(
               onPressed: () {
-                // TODO: ログインページが実装できたらコメントを外す
-                // Navigator.of(context).push(LoginPage.route());
+                Navigator.of(context).push(LoginPage.route());
               },
               child: const Text('すでにアカウントをお持ちの方はこちら'),
             )
