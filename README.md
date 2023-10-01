@@ -1,2 +1,3 @@
 # flutter_chat
-flutter 
+
+Use Flutter, Supabase.
